@@ -31,6 +31,12 @@ body {
     bottom: 55px;
     font-size: 18px;
   }
+
+  a {
+    text-decoration: none;
+    margin: 15px 0;
+    padding: 10px 5px ;
+  }
   
   .degrees,
   #celsius-link,
