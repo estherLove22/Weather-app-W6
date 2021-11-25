@@ -51,7 +51,7 @@
                 type="submit"
                 value="Current"
                 id ="current-temp-button"
-                class="form-control btn btn-dark shadow-sm"
+                class="form-control btn btn-secondary shadow-sm"
               />
             </div>
           </div>
@@ -85,18 +85,24 @@
           </div>
 
           <div class="col-3">
-            <p class="hi-lo">
-              High: 33°
-              <br />
-              Low: 13°
-            </p>
+                <ul>
+                    <li class="high"> High: 33°</li>
+                <br/>
+                    <li class= "low"> Low: 13°</li>
+                 </ul>
+            
           </div>
         </div>
 
-        <div class="factors-climate">
-          
-          Humidity:<span id="humidity"> 35 </span>%  Wind: NNW <span id="wind"> 8</span> km/hr
-        </div>
+    <div class="factors-climate">
+        <ul>
+            <li class="humidity"> Humidity:35  </li> 
+            <li class="wind">  Wind: NNW 8 </li>  
+        
+
+        </ul>
+    </div>
+
         <p class="quotes">
           "Keep positive, and then your day will be brightened."
         </p>
@@ -148,8 +154,8 @@
       <br />
       <footer>Daily forecast for the next 5 days</footer>
     </div>
-    <div>
-     <a href="https://github.com/estherLove22/Weather-app-W6">Open-source code</a> , by Estherlene Lavadia
+    <div class="signature">
+     <a href="https://github.com/estherLove22/Weather-app-W6" class="open-source">Open-source code</a>  , by Estherlene Lavadia
     </div>
     <script src="script.js"></script>
   </body>
