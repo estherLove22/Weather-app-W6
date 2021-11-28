@@ -45,60 +45,31 @@ function formatDate() {
   
   currentTime.innerHTML = formatDate(now);
   
-  function searchLocation(position) {
-    let apiKey = "c48f152f0e04033d01dba3c6ec2d4606";
-    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
-    let units = `metric`;
-    let apiUrl = `${apiEndpoint}lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(showTemperature);
-  }
-  
-  function getCurrentLocation(event) {
-    event.preventDefault();
-    navigator.geolocation.getCurrentPosition(searchLocation);
-  }
-  
-  // current temperature - my location
-  function showTemperature(response) {
-    console.log(response);
-  
-    let h1 = document.querySelector("h1");
-    let city = response.data.name;
-    if (response.data.name) {
-      h1.innerHTML = `Today's forecast for ${city}`;
-    } else {
-      h1.innerHTML = null;
-      alert("Please Type a City");
-    }
-  
-    let currentTemp = document.querySelector("h3");
-    currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°`;
-  }
-  let currentLocationButton = document.querySelector("#current-temp-button");
-  currentLocationButton.addEventListener("click", getCurrentLocation);
-  
-  // search  a city
-  
-  function goSearchCity(event) {
-    event.preventDefault();
-    let city = document.querySelector("#city-input").value;
-    searchCity(city);
-  }
-  
-  function searchCity(city) {
-    let apiKey = "c48f152f0e04033d01dba3c6ec2d4606";
-    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-    let units = `metric`;
-    let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}`;
-  
-    axios.get(apiUrl).then(showTemperature);
-  }
-  
-  console.log(searchCity);
-  
-  let form = document.querySelector("#search-button");
-  form.addEventListener("submit", goSearchCity);
-  
-  let searchButton = document.querySelector("#search-button");
-  searchButton.addEventListener("click", goSearchCity);
-  
+ function showTemperature(response){
+   console.log(response.data);
+
+let temperature = document.querySelector("h3");
+let city = document.querySelector("#city-input");
+let description = document.querySelector("#description");
+let humidity = document.querySelector("#humidity");
+let windSpeed = document.querySelector("#wind");
+let high = document.querySelector("#high");
+let low = document.querySelector("#low");
+
+
+temperature.innerHTML = `${Math.round(response.data.main.temp)}° `;
+city.innerHTML = response.data.name;
+description.innerHTML = response.data.weather[0].description;
+humidity.innerHTML = `Humiidty:${response.data.main.humidity}%`;
+windSpeed.innerHTML =  `Wind:${Math.round(response.data.wind.speed)} Km/Hr`;
+high.innerHTML = `High:${Math.round(response.data.main.temp_max)}° `;
+low.innerHTML = `Low:${Math.round(response.data.main.temp_min)}° `;
+
+ } 
+
+ let apiKey = "c48f152f0e04033d01dba3c6ec2d4606";
+ let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+ let units = `metric`;
+ let apiUrl = `${apiEndpoint}?q=Toronto&appid=${apiKey}&units=${units}`;
+
+ axios.get(apiUrl).then(showTemperature);
