@@ -39,6 +39,7 @@ let windSpeed = document.querySelector("#wind");
 let high = document.querySelector("#high");
 let low = document.querySelector("#low");
 let date = document.querySelector("#date");
+let icon = document.querySelector("#icon");
 
 
 
@@ -50,13 +51,13 @@ windSpeed.innerHTML =  `Wind:${Math.round(response.data.wind.speed)} Km/Hr`;
 high.innerHTML = `High:${Math.round(response.data.main.temp_max)}° `;
 low.innerHTML = `Low:${Math.round(response.data.main.temp_min)}° `;
 date.innerHTML =formatDate(response.data.dt * 1000);
-
+icon.setAttribute("src" , `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
  } 
 
  let apiKey = "c48f152f0e04033d01dba3c6ec2d4606";
  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
  let units = `metric`;
- let city = "Toronto";
+ let city = "Manila";
  let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}`;
 
  axios.get(apiUrl).then(showTemperature);

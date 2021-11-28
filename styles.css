@@ -21,8 +21,10 @@ body {
   }
   
   h3 {
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 600;
+    position: relative;
+    margin-top: 15px;
   }
   
   h4 {
@@ -55,8 +57,8 @@ li {list-style: none;
     font-size: 30px;
     text-align: right;
     position: relative;
-    left: 85px;
-    bottom: 65px;
+    left: 95px;
+    bottom: 60px;
     text-decoration: none;
   }
   
@@ -73,23 +75,23 @@ li {list-style: none;
     display: block;
     position: relative;
     font-size: 20px;
-    margin-left: 20px;
-    margin-top: 50px;
+    margin-left: 5px;
+    margin-top: 30px;
     
   }
 
   #low {display: block;
   position: relative;
   font-size: 20px;
-  margin-left: 20px;
+  margin-left: 5px;
   }
 
   
-  .sun {
+  .image {
     display: inline-block;
     max-width: 150px;
     position: relative;
-    left: 20px;
+    left: 10px;
   }
   
   .container {
@@ -125,7 +127,7 @@ li {list-style: none;
     text-align: center;
   }
 
-  .weather::first-letter{
+  .weather:first-letter{
     text-transform: capitalize;
   }
 
@@ -140,6 +142,7 @@ li {list-style: none;
     font-size: 18px;
     text-align: left;
     margin-left: 90px;
+    margin-bottom: 10px;
     
   }
   
