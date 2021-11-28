@@ -69,11 +69,11 @@ li {list-style: none;
   }
 
 
-  .high , .low {
-    position: relative;
+  #high , #low {
+    text-align: left;
     font-size: 20px;
-    top: 50px;
-    left: 0;
+    
+    
   }
   
   .sun {
