@@ -69,12 +69,21 @@ li {list-style: none;
   }
 
 
-  #high , #low {
-    text-align: left;
+  #high  {
+    display: block;
+    position: relative;
     font-size: 20px;
-    
+    margin-left: 20px;
+    margin-top: 50px;
     
   }
+
+  #low {display: block;
+  position: relative;
+  font-size: 20px;
+  margin-left: 20px;
+  }
+
   
   .sun {
     display: inline-block;
@@ -115,6 +124,11 @@ li {list-style: none;
     font-size: 20px;
     text-align: center;
   }
+
+  .weather::first-letter{
+    text-transform: capitalize;
+  }
+
   .quotes {
     font-size: 20px;
     text-align: left;
