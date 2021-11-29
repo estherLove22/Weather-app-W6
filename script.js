@@ -27,6 +27,37 @@ return `${day} ${hours}: ${minutes}`;
 
 }
 
+function searchLocation(position) {
+  let apiKey = "c48f152f0e04033d01dba3c6ec2d4606";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
+  let units = `metric`;
+  let apiUrl = `${apiEndpoint}lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+// current temperature - my location
+function showTemperature(response) {
+  console.log(response);
+
+ 
+  let currentTemp = document.querySelector("h3");
+  currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°`;
+  let desciption = document.querySelector("#description");
+  desciption.innerHTML = response.data.weather.description;
+
+}
+
+let currentLocationButton = document.querySelector("#current-temp-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+
+
+
   
 function showTemperature(response){
    console.log(response.data);
@@ -40,7 +71,15 @@ let high = document.querySelector("#high");
 let low = document.querySelector("#low");
 let date = document.querySelector("#date");
 let icon = document.querySelector("#icon");
+let cityName = document.querySelector("h1");
 
+
+if (response.data.name) {
+  cityName.innerHTML = `Today's forecast for ${response.data.name}`;
+} else {
+  cityName.innerHTML = null;
+  alert("Please Type a City");
+}
 
 
 temperature.innerHTML = `${Math.round(response.data.main.temp)}° `;
@@ -52,7 +91,11 @@ high.innerHTML = `High:${Math.round(response.data.main.temp_max)}° `;
 low.innerHTML = `Low:${Math.round(response.data.main.temp_min)}° `;
 date.innerHTML =formatDate(response.data.dt * 1000);
 icon.setAttribute("src" , `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
- } 
+ 
+
+} 
+
+
 
 
 
