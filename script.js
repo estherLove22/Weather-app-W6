@@ -32,7 +32,7 @@ function showTemperature(response){
    console.log(response.data);
 
 let temperature = document.querySelector("h3");
-let city = document.querySelector("#city-input");
+let cityElement = document.querySelector("#city-input");
 let description = document.querySelector("#description");
 let humidity = document.querySelector("#humidity");
 let windSpeed = document.querySelector("#wind");
@@ -44,7 +44,7 @@ let icon = document.querySelector("#icon");
 
 
 temperature.innerHTML = `${Math.round(response.data.main.temp)}° `;
-city.innerHTML = response.data.name;
+cityElement.innerHTML = response.data.name;
 description.innerHTML = response.data.weather[0].description;
 humidity.innerHTML = `Humidity:${response.data.main.humidity}%`;
 windSpeed.innerHTML =  `Wind:${Math.round(response.data.wind.speed)} Km/Hr`;
@@ -54,10 +54,26 @@ date.innerHTML =formatDate(response.data.dt * 1000);
 icon.setAttribute("src" , `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
  } 
 
- let apiKey = "c48f152f0e04033d01dba3c6ec2d4606";
- let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
- let units = `metric`;
- let city = "Manila";
- let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}`;
 
- axios.get(apiUrl).then(showTemperature);
+
+ function search(city){
+  let apiKey = "c48f152f0e04033d01dba3c6ec2d4606"; 
+  let units = `metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+ 
+  axios.get(apiUrl).then(showTemperature);
+ 
+ }
+
+
+function handleSubmit(event){
+  event.preventDefault();
+let cityInput = document.querySelector("#city-input").value;
+search(cityInput);
+
+}
+
+search("Toronto");
+
+let searchButton = document.querySelector("#search-button");
+  searchButton.addEventListener("click", handleSubmit);
