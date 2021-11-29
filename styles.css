@@ -50,26 +50,46 @@ li {list-style: none;
 
 }
 
-  .degrees,
-  #celsius-link,
-  #fahrenheit-link {
+  .degrees {
     color: black;
     font-size: 30px;
     text-align: right;
     position: relative;
     left: 95px;
     bottom: 60px;
+   
+   
+  }
+  
+
+  #fahrenheit-link{
     text-decoration: none;
-  }
-  
-  #celsius-link:hover {
-    color: grey;
-  }
-  
-  #fahrenheit-link:hover {
-    color: grey;
+    font-size: 30px;
+    text-align: right;
+    position: relative;
+    left: 95px;
+    bottom: 60px;
   }
 
+  #celsius-link{
+    text-decoration: none;
+    font-size: 30px;
+    text-align: right;
+    position: relative;
+    left: 95px;
+    bottom: 60px;
+  }
+
+  .celsiusFahrenheit .active {
+    color: black;
+    font-size: 30px;
+    text-align: right;
+    position: relative;
+    left: 95px;
+    bottom: 60px;
+    cursor: default;
+  }
+  
 
   #high  {
     display: block;
