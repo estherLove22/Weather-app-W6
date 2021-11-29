@@ -22,8 +22,25 @@ let days = [
 
 let day = days[date.getDay()];
 
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
 
-return `${day} ${hours}: ${minutes}`;
+let month = months[date.getMonth()];
+let currentDate = date.getDate();
+
+return `${month} ${currentDate}  ${day} ${hours}: ${minutes}`;
 
 }
 
