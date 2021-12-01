@@ -44,6 +44,35 @@ return `${month} ${currentDate}  ${day} ${hours}: ${minutes}`;
 
 }
 
+//
+function displayForecast (){
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue","Wed","Thur","Fri","Sat"];
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML +`
+        <div class="col-2">
+          <span class="forecast-date"> ${day} </span>
+          <br />
+          <img src="images/partly-cloudy.png" width="50px" />
+
+             <div class="forecast-temperatures">
+                <span class="forecast-temp-max">25°</span> 
+                <span class="forecast-temp-min">13°</span> 
+            </div>
+        </div>
+`;
+  });
+
+forecastHTML =forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+
+}
+
+
+//
+
 function searchLocation(position) {
   let apiKey = "c48f152f0e04033d01dba3c6ec2d4606";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
@@ -164,3 +193,4 @@ celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 
 search("Toronto");
+displayForecast();

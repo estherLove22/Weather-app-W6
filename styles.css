@@ -55,7 +55,7 @@ li {list-style: none;
     font-size: 30px;
     text-align: right;
     position: relative;
-    left: 95px;
+    left: 80px;
     bottom: 60px;
    
    
@@ -67,7 +67,7 @@ li {list-style: none;
     font-size: 30px;
     text-align: right;
     position: relative;
-    left: 95px;
+    left: 80px;
     bottom: 60px;
   }
 
@@ -76,7 +76,7 @@ li {list-style: none;
     font-size: 30px;
     text-align: right;
     position: relative;
-    left: 95px;
+    left: 80px;
     bottom: 60px;
   }
 
@@ -110,6 +110,7 @@ li {list-style: none;
   .image {
     display: inline-block;
     max-width: 150px;
+    width: 130px;
     position: relative;
     left: 10px;
   }
