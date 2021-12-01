@@ -45,7 +45,8 @@ return `${month} ${currentDate}  ${day} ${hours}: ${minutes}`;
 }
 
 //
-function displayForecast (){
+function displayForecast (response){
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#weather-forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -101,10 +102,23 @@ function showTemperature(response) {
 let currentLocationButton = document.querySelector("#current-temp-button");
 currentLocationButton.addEventListener("click", showCurrentLocation);
 
+// daily forecast
 
+function getForecast(coordinates){
+  console.log(coordinates);
+  let apiKey = "c48f152f0e04033d01dba3c6ec2d4606"; 
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+console.log(apiUrl);
 
+axios.get(apiUrl).then(displayForecast);
+}
 
   
+
+
+//
+
+
 function showTemperature(response){
    console.log(response.data);
 
@@ -138,6 +152,8 @@ low.innerHTML = `Low:${Math.round(response.data.main.temp_min)}° `;
 date.innerHTML =formatDate(response.data.dt * 1000);
 icon.setAttribute("src" , `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
  
+
+getForecast(response.data.coord);
 
 } 
 
@@ -193,4 +209,3 @@ celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 
 search("Toronto");
-displayForecast();
