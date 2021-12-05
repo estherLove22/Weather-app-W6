@@ -11,12 +11,12 @@ body {
   
   h2,
   .month {
-    margin: 5px 20px;
+    margin: 5px 15px;
     position: relative;
     right: 5px;
     top: 20px;
     font-size: 20px;
-    padding: 0 20px;
+    padding: 0 18px;
     height: 100px;
   }
   
@@ -159,6 +159,11 @@ li {list-style: none;
     
   }
   
+
+  .forecast-temp-min{
+color:rgb(163, 162, 162) ;
+  }
+
   .factors-climate {
     font-size: 18px;
     text-align: left;
