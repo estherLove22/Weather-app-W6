@@ -40,7 +40,7 @@ let months = [
 let month = months[date.getMonth()];
 let currentDate = date.getDate();
 
-return `${month} ${currentDate} <br/>  ${day} ${hours}: ${minutes}`;
+return `${month} ${currentDate} <br/>  ${day} <br/> ${hours}: ${minutes}`;
 
 }
 
@@ -109,8 +109,6 @@ function showCurrentLocation(event) {
 
 // current temperature - my location
 function showTemperature(response) {
-  console.log(response);
-
  
   let currentTemp = document.querySelector("h3");
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°`;
@@ -124,7 +122,6 @@ currentLocationButton.addEventListener("click", showCurrentLocation);
 
 
 function getForecast(coordinates){
-  console.log(coordinates);
   let apiKey = "c48f152f0e04033d01dba3c6ec2d4606"; 
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 console.log(apiUrl);
@@ -134,7 +131,6 @@ axios.get(apiUrl).then(displayForecast);
 
 
 function showTemperature(response){
-   console.log(response.data);
 
 let temperature = document.querySelector("h3");
 let cityElement = document.querySelector("#city-input");
