@@ -73,7 +73,7 @@ let forecast = response.data.daily;
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay , index) {
-    if (index < 5) {
+    if (index < 6) {
     forecastHTML = forecastHTML +`
         <div class="col-2">
           <span class="forecast-date"> ${formatDay(forecastDay.dt)} </span>
