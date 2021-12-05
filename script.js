@@ -63,8 +63,6 @@ function formatDay(timestamp){
 }
 
 
-
-//
 function displayForecast (response){
 let forecast = response.data.daily;
 
@@ -95,8 +93,6 @@ forecastElement.innerHTML = forecastHTML;
 }
 
 
-//
-
 function searchLocation(position) {
   let apiKey = "c48f152f0e04033d01dba3c6ec2d4606";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
@@ -125,7 +121,6 @@ function showTemperature(response) {
 let currentLocationButton = document.querySelector("#current-temp-button");
 currentLocationButton.addEventListener("click", showCurrentLocation);
 
-// daily forecast
 
 function getForecast(coordinates){
   console.log(coordinates);
@@ -135,11 +130,6 @@ console.log(apiUrl);
 
 axios.get(apiUrl).then(displayForecast);
 }
-
-  
-
-
-//
 
 
 function showTemperature(response){
@@ -165,7 +155,7 @@ if (response.data.name) {
 
 celsiusTemperature = response.data.main.temp;
 
-temperature.innerHTML = `${Math.round(response.data.main.temp)}° `;
+temperature.innerHTML = `${Math.round(response.data.main.temp)}`;
 cityElement.innerHTML = response.data.name;
 description.innerHTML = response.data.weather[0].description;
 humidity.innerHTML = `Humidity:${response.data.main.humidity}%`;
@@ -197,16 +187,7 @@ search(cityInput);
 
 }
 
-function showFahrenheitTemperature(event){
-  event.preventDefault();
-let temperature = document.querySelector("#temp-input");
 
-celsiusLink.classList.remove("active");
-fahrenheitLink.classList.add("active");
-
-let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32 ;
-temperature.innerHTML =  `${Math.round(fahrenheitTemperature)}°`;
-}
 
 function showCelsiusTemperature(event){
   event.preventDefault();
@@ -224,8 +205,6 @@ let searchButton = document.querySelector("#search-button");
   searchButton.addEventListener("click", handleSubmit);
 
 
-let fahrenheitLink =  document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let celsiusLink =  document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
