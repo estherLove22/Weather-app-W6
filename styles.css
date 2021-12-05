@@ -88,6 +88,8 @@ li {list-style: none;
   }
 
   
+
+
   .image {
     display: inline-block;
     max-width: 150px;
@@ -95,13 +97,15 @@ li {list-style: none;
     position: relative;
     left: 10px;
   }
+
   
+
   .container {
     border: 3px solid rgb(163, 162, 162);
     height: 600px;
     border-radius: 10px;
     padding: 0 25px;
-    
+    background: radial-gradient(circle at 10% 20%, rgb(242, 235, 243) 0%, rgb(234, 241, 249) 90.1%);
   }
   
   .enter-city {
